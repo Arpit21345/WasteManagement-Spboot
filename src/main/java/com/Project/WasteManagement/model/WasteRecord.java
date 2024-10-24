@@ -7,41 +7,65 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "waste_records") // Specify your table name if needed
+@Table(name = "wasterecord") // Specify your table name
 public class WasteRecord {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Use IDENTITY or another strategy as needed
-    private Long id;
+    private Long wasteId; // Changed to wasteId
 
-    // Other attributes
-    private String description; // Example attribute
-    private String category; // Example attribute
+    private Long franchiseId; // Reference to Franchise ID
+    private String wasteCategory; // E.g., Edible, Not Edible, etc.
+    private Integer quantity; // Quantity in kilograms
+    private String disposalMethod; // E.g., Compost, Recycle, etc.
+    private String disposalDate; // Disposal date
 
     // Getters and setters
-    public Long getId() {
-        return id;
+    public Long getWasteId() {
+        return wasteId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setWasteId(Long wasteId) {
+        this.wasteId = wasteId;
     }
 
-    public String getDescription() {
-        return description;
+    public Long getFranchiseId() {
+        return franchiseId;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setFranchiseId(Long franchiseId) {
+        this.franchiseId = franchiseId;
     }
 
-    public String getCategory() {
-        return category;
+    public String getWasteCategory() {
+        return wasteCategory;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setWasteCategory(String wasteCategory) {
+        this.wasteCategory = wasteCategory;
     }
 
-    // Additional methods if necessary
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getDisposalMethod() {
+        return disposalMethod;
+    }
+
+    public void setDisposalMethod(String disposalMethod) {
+        this.disposalMethod = disposalMethod;
+    }
+
+    public String getDisposalDate() {
+        return disposalDate;
+    }
+
+    public void setDisposalDate(String disposalDate) {
+        this.disposalDate = disposalDate;
+    }
 }

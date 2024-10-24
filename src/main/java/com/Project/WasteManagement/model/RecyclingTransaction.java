@@ -7,40 +7,75 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "recycling_transactions") // Specify your table name if needed
+@Table(name = "recyclingtransaction") // Ensure this matches your database table name
 public class RecyclingTransaction {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Use IDENTITY or another strategy as needed
-    private Long id;
+    private Long transactionId; // Primary Key
 
-    // Other attributes
-    private String type; // Example attribute
-    private int quantity; // Example attribute
+    private Long franchiseId; // Foreign Key reference to Franchise ID
+    private String transactionDate; // Date of the transaction
+    private String wasteCategory; // Category of waste (e.g., Edible, Non-Edible, Expired)
+    private int quantityProcessed; // Quantity of waste processed
+    private String facility; // Name of the recycling facility
+    private String status; // Status of the transaction (e.g., Pending, Completed)
 
     // Getters and setters
-    public Long getId() {
-        return id;
+    public Long getTransactionId() {
+        return transactionId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTransactionId(Long transactionId) {
+        this.transactionId = transactionId;
     }
 
-    public String getType() {
-        return type;
+    public Long getFranchiseId() {
+        return franchiseId;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setFranchiseId(Long franchiseId) {
+        this.franchiseId = franchiseId;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getTransactionDate() {
+        return transactionDate;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setTransactionDate(String transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+
+    public String getWasteCategory() {
+        return wasteCategory;
+    }
+
+    public void setWasteCategory(String wasteCategory) {
+        this.wasteCategory = wasteCategory;
+    }
+
+    public int getQuantityProcessed() {
+        return quantityProcessed;
+    }
+
+    public void setQuantityProcessed(int quantityProcessed) {
+        this.quantityProcessed = quantityProcessed;
+    }
+
+    public String getFacility() {
+        return facility;
+    }
+
+    public void setFacility(String facility) {
+        this.facility = facility;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     // Additional methods if necessary

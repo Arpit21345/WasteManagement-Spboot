@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/recycling")
+@RequestMapping("/api/recycling") // Base URL for recycling transactions
 public class RecyclingTransactionController {
 
     private static final Logger logger = LoggerFactory.getLogger(RecyclingTransactionController.class);
@@ -69,7 +69,7 @@ public class RecyclingTransactionController {
             if (!recyclingTransactionRepository.existsById(id)) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
-            transaction.setId(id);
+            transaction.setTransactionId(id); // Set the correct ID field
             RecyclingTransaction updatedTransaction = recyclingTransactionRepository.save(transaction);
             return new ResponseEntity<>(updatedTransaction, HttpStatus.OK);
         } catch (Exception e) {
@@ -82,6 +82,9 @@ public class RecyclingTransactionController {
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteRecyclingTransaction(@PathVariable Long id) {
         try {
+            if (!recyclingTransactionRepository.existsById(id)) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
             recyclingTransactionRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {

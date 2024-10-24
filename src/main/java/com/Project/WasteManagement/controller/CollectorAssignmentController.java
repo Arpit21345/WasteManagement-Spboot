@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/collectorassignments") // Updated to use hyphen as per REST conventions
+@RequestMapping("/collectorassignment") // Updated to use hyphen as per REST conventions
 public class CollectorAssignmentController {
 
     private final Logger logger = LoggerFactory.getLogger(CollectorAssignmentController.class);
