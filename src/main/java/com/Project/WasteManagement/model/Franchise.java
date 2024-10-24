@@ -7,23 +7,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "franchises")
+@Table(name = "franchise")
 public class Franchise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long franchiseid;
 
     private String name; // Franchise name
     private String location; // Franchise location
+    private String contactnumber; // Contact number
+    private String email; // Email address
 
     // Getters and setters
-    public Long getId() {
-        return id;
+    public Long getFranchiseid() {
+        return franchiseid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setFranchiseid(Long franchiseid) {
+        this.franchiseid = franchiseid;
     }
 
     public String getName() {
@@ -40,5 +42,21 @@ public class Franchise {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getContactnumber() {
+        return contactnumber;
+    }
+
+    public void setContactnumber(String contactnumber) {
+        this.contactnumber = contactnumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
