@@ -1,12 +1,11 @@
-package com.Project.structure;
+package com.Project.WasteManagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WasteApplication {
-
+public class WasteManagementApplication {
     public static void main(String[] args) {
-        SpringApplication.run(WasteApplication.class, args);
+        SpringApplication.run(WasteManagementApplication.class, args);
     }
 }
