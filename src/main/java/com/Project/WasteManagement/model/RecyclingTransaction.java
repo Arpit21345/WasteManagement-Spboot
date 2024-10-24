@@ -1,22 +1,24 @@
 package com.Project.WasteManagement.model;
 
-import javax.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "recycling_transaction")
+@Table(name = "recycling_transactions") // Specify your table name if needed
 public class RecyclingTransaction {
-
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Use IDENTITY or another strategy as needed
     private Long id;
 
-    private String materialType; // Type of recyclable material
-    private int quantity; // Quantity being recycled
-    private String recyclerName; // Name of the recycler
-    private String date; // Date of transaction
+    // Other attributes
+    private String type; // Example attribute
+    private int quantity; // Example attribute
 
-    // Getters and Setters
-
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -25,12 +27,12 @@ public class RecyclingTransaction {
         this.id = id;
     }
 
-    public String getMaterialType() {
-        return materialType;
+    public String getType() {
+        return type;
     }
 
-    public void setMaterialType(String materialType) {
-        this.materialType = materialType;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getQuantity() {
@@ -41,19 +43,5 @@ public class RecyclingTransaction {
         this.quantity = quantity;
     }
 
-    public String getRecyclerName() {
-        return recyclerName;
-    }
-
-    public void setRecyclerName(String recyclerName) {
-        this.recyclerName = recyclerName;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
+    // Additional methods if necessary
 }

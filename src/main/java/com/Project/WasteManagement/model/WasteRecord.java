@@ -1,19 +1,24 @@
 package com.Project.WasteManagement.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "waste_records") // Specify your table name if needed
 public class WasteRecord {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Use IDENTITY or another strategy as needed
     private Long id;
-    private String wasteType;
-    private double quantity;
 
-    // Getters and Setters
+    // Other attributes
+    private String description; // Example attribute
+    private String category; // Example attribute
+
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -22,19 +27,21 @@ public class WasteRecord {
         this.id = id;
     }
 
-    public String getWasteType() {
-        return wasteType;
+    public String getDescription() {
+        return description;
     }
 
-    public void setWasteType(String wasteType) {
-        this.wasteType = wasteType;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public double getQuantity() {
-        return quantity;
+    public String getCategory() {
+        return category;
     }
 
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
+    public void setCategory(String category) {
+        this.category = category;
     }
+
+    // Additional methods if necessary
 }
